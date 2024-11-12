@@ -1,0 +1,108 @@
+# Task 1
+public class ArraySwapper {
+
+    public static void swapArrays(int[] array1, int[] array2) {
+        if (array1.length == 4 && array2.length == 4) {
+            for (int i = 0; i < 4; i++) {
+                int temp = array1[i];
+                array1[i] = array2[i];
+                array2[i] = temp;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4};
+        int[] array2 = {5, 6, 7, 8};
+        
+        swapArrays(array1, array2);
+        System.out.println("Swapped Array1: " + java.util.Arrays.toString(array1));
+        System.out.println("Swapped Array2: " + java.util.Arrays.toString(array2));
+    }
+}
+
+# Task 2
+public class ArrayMerger {
+
+    public static int[] mergeArrays(int[] existingArray, int[] newArray) {
+        int[] mergedArray = new int[existingArray.length + newArray.length];
+        System.arraycopy(existingArray, 0, mergedArray, 0, existingArray.length);
+        System.arraycopy(newArray, 0, mergedArray, existingArray.length, newArray.length);
+        return mergedArray;
+    }
+
+    public static void main(String[] args) {
+        int[] existingArray = {1, 2, 3, 4};
+        int[] newArray = {5, 6, 7, 8};
+        
+        int[] mergedArray = mergeArrays(existingArray, newArray);
+        System.out.println("Merged Array: " + java.util.Arrays.toString(mergedArray));
+    }
+}
+
+# Task 3
+
+public class PalindromeChecker {
+
+    public static void checkPalindromes(String[] array) {
+        for (String str : array) {
+            String reverse = new StringBuilder(str).reverse().toString();
+            if (str.equals(reverse)) {
+                System.out.println(str + " is a palindrome");
+            } else {
+                System.out.println(str + " is not a palindrome");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String[] stringArray = {"madam", "hello", "racecar", "world"};
+        checkPalindromes(stringArray);
+    }
+}
+
+# Task 4
+
+public class EvenOddCounter {
+
+    public static void countEvenOdd(int[] array) {
+        int evenCount = 0, oddCount = 0;
+        for (int num : array) {
+            if (num % 2 == 0) evenCount++;
+            else oddCount++;
+        }
+        System.out.println("Even numbers: " + evenCount);
+        System.out.println("Odd numbers: " + oddCount);
+    }
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8};
+        countEvenOdd(array);
+    }
+}
+
+# Task 5
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class UniqueArrayMerger {
+
+    public static int[] mergeAndRemoveDuplicates(int[] array1, int[] array2) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : array1) set.add(num);
+        for (int num : array2) set.add(num);
+        int[] result = new int[set.size()];
+        int i = 0;
+        for (int num : set) result[i++] = num;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4};
+        int[] array2 = {3, 4, 5, 6};
+        
+        int[] uniqueMergedArray = mergeAndRemoveDuplicates(array1, array2);
+        System.out.println("Unique Merged Array: " + java.util.Arrays.toString(uniqueMergedArray));
+    }
+}
